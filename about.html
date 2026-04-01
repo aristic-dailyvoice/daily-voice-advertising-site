@@ -132,6 +132,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 
 
 @media (max-width: 960px) {
+  nav.nav-hidden { transform: translateY(calc(-100% - 12px)); }
   nav { padding: 0 20px; }
   footer { padding-left: 20px; padding-right: 20px; }
   .nav-links { position: absolute; top: 66px; left: 0; right: 0; height: auto; margin-left: 0; gap: 0; padding: 0; border-top: 1px solid var(--border); background: white; overflow-x: visible; -webkit-overflow-scrolling: touch; scrollbar-width: none; box-shadow: 0 2px 4px rgba(0,0,0,0.06); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); justify-items: stretch; align-items: stretch; }
@@ -304,8 +305,8 @@ window.addEventListener('scroll', function () {
   var cur = window.pageYOffset;
   var isMobile = window.matchMedia('(max-width: 960px)').matches;
   var hideThreshold = isMobile ? 120 : 120;
-  var upThreshold = isMobile ? 18 : 18;
-  var topRevealThreshold = isMobile ? 120 : 120;
+  var upThreshold = isMobile ? 10 : 18;
+  var topRevealThreshold = isMobile ? 90 : 120;
   if (cur <= topRevealThreshold) { _navEl.classList.remove('nav-hidden'); }
   else if (cur > _lastScroll && cur > hideThreshold) { _navEl.classList.add('nav-hidden'); }
   else if (_lastScroll - cur > upThreshold) { _navEl.classList.remove('nav-hidden'); }
