@@ -190,7 +190,10 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 }
 
 .coverage-section { background: #FAF9F8; padding: 72px 5%; }
-.coverage-sub { font-size: 15px; color: var(--body); line-height: 1.8; max-width: 520px; margin-bottom: 36px; }
+.coverage-sub-row { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 32px; }
+.coverage-sub { font-size: 15px; color: var(--body); line-height: 1.8; max-width: none; margin-bottom: 0; }
+.coverage-sites-link { font-size: 15px; color: #444444; text-decoration: underline; }
+.coverage-sites-link:hover { color: #444444; }
 .states-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .state-card { background: white; border: 1px solid #e2e0dc; border-top: 4px solid var(--red); padding: 20px 22px; }
 .state-card-head { margin-bottom: 10px; }
@@ -363,7 +366,10 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
   <div class="section-inner">
     <span class="section-kicker">COVERAGE AREA</span>
     <h2 class="section-h">84 Counties Across Seven States.</h2>
-    <p class="coverage-sub">From Connecticut's Gold Coast to Virginia's DC suburbs, Daily Voice covers the communities where your customers live.</p>
+    <div class="coverage-sub-row">
+      <p class="coverage-sub">From Connecticut's Gold Coast to Virginia's DC suburbs, Daily Voice covers the communities where your customers live.</p>
+      <a class="coverage-sites-link" href="https://dailyvoice.com/all-sites/" target="_blank" rel="noopener noreferrer">See all Daily Voice sites here.</a>
+    </div>
     <div class="states-grid">
 
       <div class="state-card">

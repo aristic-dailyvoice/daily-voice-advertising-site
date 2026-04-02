@@ -117,7 +117,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 .do-bottom-copy { display: flex; flex-direction: column; gap: 4px; }
 .do-bottom-copy strong { font-size: 16px; font-weight: 700; color: white; }
 .do-bottom-copy span { font-size: 13.5px; color: rgba(255,255,255,.8); }
-.action-section { background: var(--light); padding: 72px 5%; border-top: 1px solid var(--border); scroll-margin-top: 78px; }
+.action-section { background: var(--light); padding: 72px 5%; border-top: 1px solid var(--border); scroll-margin-top: 78px; transition: height .56s cubic-bezier(.22,1,.36,1); overflow: hidden; }
 .action-grid { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px; align-items: start; }
 .action-copy p { font-size: 15px; color: var(--body); line-height: 1.8; margin-bottom: 28px; }
 .action-hiw { margin-bottom: 28px; }
@@ -134,7 +134,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 .acr-icon { width: 30px; height: 30px; background: var(--red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .acr-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); }
 .acr-val { font-size: 14px; font-weight: 600; color: var(--charcoal); margin-top: 2px; }
-.action-form-wrap { background: white; border: 1px solid var(--border); border-top: 4px solid var(--red); padding: 36px 36px 40px; box-shadow: 0 10px 24px rgba(0,0,0,0.06); scroll-margin-top: 78px; }
+.action-form-wrap { background: white; border: 1px solid var(--border); border-top: 4px solid var(--red); padding: 36px 36px 40px; box-shadow: 0 10px 24px rgba(0,0,0,0.06); scroll-margin-top: 78px; overflow: hidden; }
 .action-form-header { margin-bottom: 24px; }
 .action-form-header h3 { font-size: 20px; font-weight: 900; color: var(--charcoal); margin-bottom: 4px; }
 .action-form-header p { font-size: 13px; color: var(--gray); }
@@ -144,6 +144,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 .fg.req label::after { content: ' *'; color: var(--red); }
 .fg input, .fg select, .fg textarea { background: var(--lighter); border: 1px solid var(--border); color: var(--charcoal); padding: 11px 13px; font-family: Helvetica, Arial, sans-serif; font-size: 14px; outline: none; transition: border-color .2s; width: 100%; }
 .fg select { cursor: pointer; }
+.fg.is-hidden { display: none; }
 .fg select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23aaa' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 22px 22px; padding-right: 44px; }
 .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: #1f1f1f; background: white; }
 .fg input::placeholder, .fg textarea::placeholder { color: #c0c0c0; }
@@ -316,7 +317,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
         <div class="ic-icon"><svg viewBox="0 0 24 24" fill="var(--red)" width="28" height="28"><path d="M21.9 8.89l-1.05-4.37c-.22-.9-1.02-1.52-1.94-1.52H5.09c-.92 0-1.72.62-1.94 1.52L2.1 8.89c-.24 1.02-.02 2.06.62 2.88.08.11.19.19.28.29V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6.94c.09-.09.2-.18.28-.29.64-.82.87-1.87.62-2.88zM12 19H5v-5h7v5zm7 0h-5v-5h5v5zM4.08 9.26l.63-2.6c.05-.2.23-.34.44-.34h13.7c.21 0 .39.14.44.34l.63 2.6c.08.35-.19.74-.57.74H4.65c-.38 0-.65-.39-.57-.74z"/></svg></div>
         <h3>Built for Local Business</h3>
         <p>Easy to launch and easy to manage. Pick the towns you serve, choose your placements, and start reaching local customers. We'll put together a plan that fits your timeline and budget.</p>
-        <div class="ic-stat"><strong>Simple</strong> setup. Clear plan for local advertising.</div>
+        <div class="ic-stat">Uniquely powerful <strong style="color: var(--red);">local</strong> marketing</div>
       </div>
     </div>
     <div class="interest-cta-nudge">
@@ -392,16 +393,38 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
           </div>
           <div class="fg req"><label>Your Business &amp; Town</label><input type="text" placeholder="e.g. Smith's Plumbing, Westport CT" maxlength="100" required /></div>
           <div class="fg"><label>Geographies you are looking to reach</label><div class="fg-textarea-wrap"><textarea placeholder="e.g. Fairfield County, Westport, Greenwich, 06880" style="min-height:80px; max-height:280px;" maxlength="1000" data-char-count></textarea><span class="fg-char-count">0/1000</span></div></div>
-          <div class="fg"><label>What are you trying to accomplish?</label><div class="fg-textarea-wrap"><textarea placeholder="e.g. More foot traffic, more calls, more local awareness." style="min-height:128px; max-height:280px;" maxlength="1000" data-char-count></textarea><span class="fg-char-count">0/1000</span></div></div>
+          <div class="fg"><label>What are you trying to accomplish?</label><div class="fg-textarea-wrap"><textarea placeholder="e.g. More foot traffic, more calls, more local awareness." style="min-height:80px; max-height:280px;" maxlength="1000" data-char-count></textarea><span class="fg-char-count">0/1000</span></div></div>
+          <div class="fg">
+            <label>Interested In</label>
+            <select id="interested-in-select">
+              <option value="" disabled selected></option>
+              <option>Not sure yet</option>
+              <option>Branded Article</option>
+              <option>Dedicated Email Blast</option>
+              <option>Website Banners</option>
+              <option>Newsletter Banners</option>
+              <option>Legal Notice / Public Notice</option>
+              <option>Combination / Multiple Products</option>
+            </select>
+          </div>
+          <div class="fg is-hidden" id="interested-in-custom-wrap">
+            <label>Products of Interest</label>
+            <input type="text" id="interested-in-custom" placeholder="e.g. Branded Article + Newsletter Banners" maxlength="100" />
+          </div>
           <div class="fg req">
             <label>Monthly Budget</label>
-            <select required>
+            <select required id="monthly-budget-select">
               <option value="" disabled selected></option>
               <option>Under $500</option>
               <option>$500 – $2,000</option>
               <option>$2,000 – $5,000</option>
               <option>$5,000+</option>
+              <option>Other / Custom</option>
             </select>
+          </div>
+          <div class="fg is-hidden" id="monthly-budget-custom-wrap">
+            <label>Custom Monthly Budget</label>
+            <input type="text" id="monthly-budget-custom" placeholder="e.g. $350 per month" maxlength="50" />
           </div>
           <button type="submit" class="form-submit">Send My Message</button>
           <div class="form-guarantee">By submitting this form you agree that Daily Voice may contact you using the provided information.</div>
@@ -471,6 +494,31 @@ document.querySelectorAll('.fg select').forEach(function(select) {
     select.blur();
   });
 });
+var _budgetSelect = document.getElementById('monthly-budget-select');
+var _budgetCustomWrap = document.getElementById('monthly-budget-custom-wrap');
+var _budgetCustomInput = document.getElementById('monthly-budget-custom');
+if (_budgetSelect && _budgetCustomWrap && _budgetCustomInput) {
+  function _toggleBudgetCustom() {
+    var show = _budgetSelect.value === 'Other / Custom';
+    _budgetCustomWrap.classList.toggle('is-hidden', !show);
+    _budgetCustomInput.required = show;
+    if (!show) _budgetCustomInput.value = '';
+  }
+  _budgetSelect.addEventListener('change', _toggleBudgetCustom);
+  _toggleBudgetCustom();
+}
+var _interestSelect = document.getElementById('interested-in-select');
+var _interestCustomWrap = document.getElementById('interested-in-custom-wrap');
+var _interestCustomInput = document.getElementById('interested-in-custom');
+if (_interestSelect && _interestCustomWrap && _interestCustomInput) {
+  function _toggleInterestCustom() {
+    var show = _interestSelect.value === 'Combination / Multiple Products';
+    _interestCustomWrap.classList.toggle('is-hidden', !show);
+    if (!show) _interestCustomInput.value = '';
+  }
+  _interestSelect.addEventListener('change', _toggleInterestCustom);
+  _toggleInterestCustom();
+}
 function _updateSpacer() { if (_spacerEl && _navEl) _spacerEl.style.height = _navEl.offsetHeight + 'px'; }
 _updateSpacer();
 window.addEventListener('resize', _updateSpacer);
@@ -488,7 +536,28 @@ window.addEventListener('scroll', function () {
 function handleSubmit(e) {
   e.preventDefault();
   var wrap = document.querySelector('.action-form-wrap');
+  var section = document.querySelector('.action-section');
+  if (section) section.style.height = section.offsetHeight + 'px';
+  wrap.style.minHeight = '0';
   wrap.innerHTML = '<div style="text-align:center;padding:48px 24px 44px;"><img src="assets/images/dv-logo-sq.svg" alt="Daily Voice" style="width:78px;height:78px;display:block;margin:0 auto 18px;"><div style="font-size:22px;font-weight:900;color:#1f1f1f;margin-bottom:4px;">Thanks, we\'ll be in touch soon!</div><p style="font-size:14px;color:#777;line-height:1.6;max-width:420px;margin:0 auto;">Someone from our team will reach out, usually the same day.</p></div>';
+  requestAnimationFrame(function() {
+    var nav = document.querySelector('nav');
+    var navOffset = nav ? nav.offsetHeight : 0;
+    var top = wrap.getBoundingClientRect().top + window.pageYOffset - navOffset - 156;
+    if (section) {
+      var endSectionHeight = section.scrollHeight;
+      setTimeout(function() {
+        section.style.height = endSectionHeight + 'px';
+      }, 120);
+      var clearSectionHeight = function(ev) {
+        if (ev.propertyName !== 'height') return;
+        section.style.height = 'auto';
+        section.removeEventListener('transitionend', clearSectionHeight);
+      };
+      section.addEventListener('transitionend', clearSectionHeight);
+    }
+    window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+  });
 }
 </script>
 </body>

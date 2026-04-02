@@ -109,6 +109,9 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 #product-02 .prod-visual--mockup { align-items: flex-end; }
 #product-02 .prod-visual--mockup .prod-image-frame { align-items: flex-end; }
 #product-02 .prod-visual--mockup { margin-bottom: -72px; }
+#product-01 .prod-visual--screenshot { margin-bottom: -88px; }
+#product-01 .prod-visual--screenshot .prod-image-frame { width: min(154%, 730px); }
+#product-01 .prod-visual--screenshot .prod-image-frame img { transform: translateY(6px); }
 #product-04 .prod-visual--mockup { align-items: flex-end; }
 #product-04 .prod-visual--mockup .prod-image-frame { align-items: flex-end; }
 #product-04 .prod-visual--mockup { margin-bottom: -107px; }
@@ -227,6 +230,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
   .prod-spec-row { flex-direction: column; gap: 2px; }
   .prod-spec-label { min-width: 0; }
   .prod-visual { aspect-ratio: auto; min-height: 0; }
+  #product-01 { padding-bottom: 0; }
   #product-01 .prod-visual--screenshot { width: calc(100% + 20px); margin-right: -20px; overflow: visible; }
   #product-01 .prod-visual--screenshot .prod-image-frame { width: 100%; margin-right: 0; }
   #product-02 { padding-bottom: 0; }
@@ -293,13 +297,13 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 </section>
 
 <!-- PRODUCT 01: BRANDED CONTENT -->
-<section class="prod-section prod-section--no-bottom" id="product-01" style="background:#fff;">
+<section class="prod-section" id="product-01" style="background:#fff;">
   <div class="prod-section-inner prod-section-inner--bottom">
     <div>
       <div class="prod-number">01</div>
       <span class="section-kicker">Editorial Advertising</span>
       <h2 class="prod-name">Branded Article</h2>
-      <p class="prod-tagline">Promote Your Articles on the Daily Voice Local Homepage</p>
+      <p class="prod-tagline">Promote Your Article on the Daily Voice Local Homepage</p>
       <div class="prod-best-for">
         
         <span class="prod-best-for-tag">Driving Traffic</span>
@@ -339,7 +343,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
       <div class="prod-best-for">
         
         <span class="prod-best-for-tag">Direct Response</span>
-        <span class="prod-best-for-tag">Sales &amp; Offers</span>
+        <span class="prod-best-for-tag">Events &amp; Promotions</span>
         <span class="prod-best-for-tag">High-Intent Audiences</span>
       </div>
       <ul class="prod-bullets">
@@ -371,7 +375,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
       <div class="prod-number">03</div>
       <span class="section-kicker">Display Advertising</span>
       <h2 class="prod-name">Website Banners</h2>
-      <p class="prod-tagline">Campaigns Designed To Make An Impression In Your Community</p>
+      <p class="prod-tagline">Campaigns Designed To Make an Impression in Your Community</p>
       <div class="prod-best-for">
         
         <span class="prod-best-for-tag">Brand Awareness</span>
@@ -379,7 +383,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
         <span class="prod-best-for-tag">High Visibility</span>
       </div>
       <ul class="prod-bullets">
-        <li><span>Specify your location(s) and we build a <strong>geo-targeted campaign</strong> to reach readers in your local area.</span></li>
+        <li><span>Specify your location(s) and we build a geo-targeted campaign to reach <strong style="color: var(--red);">readers in your local area</strong>.</span></li>
         <li><span>Short-term flights <strong>make a big splash</strong> for a one-time event, sale, or announcement.</span></li>
         <li><span>Ongoing flights <strong>establish your brand</strong> as an essential part of the community.</span></li>
       </ul>
@@ -407,7 +411,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
       <div class="prod-number">04</div>
       <span class="section-kicker">Newsletter Advertising</span>
       <h2 class="prod-name">Newsletter Banners</h2>
-      <p class="prod-tagline">Place Your Ad Inside Our Daily Newsletter</p>
+      <p class="prod-tagline">Place Your Ad Inside Our Local Newsletter</p>
       <div class="prod-best-for">
         
         <span class="prod-best-for-tag">Consistent Exposure</span>
@@ -415,9 +419,9 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
         <span class="prod-best-for-tag">Budget-Friendly Reach</span>
       </div>
       <ul class="prod-bullets">
-        <li><span>Your banner ad appears <strong>inside the Daily Voice daily newsletter</strong>, delivered straight to subscribers' inboxes.</span></li>
-        <li><span>Reach a <strong>highly engaged local audience</strong> that opens and reads the newsletter every day.</span></li>
-        <li><span>A cost-effective way to <strong>stay top of mind</strong> without the commitment of a full dedicated email blast.</span></li>
+        <li><span>Put your business in front of a <strong>highly engaged local audience</strong>.</span></li>
+        <li><span>Your ad appears directly in our local newsletter(s), delivered <strong style="color: var(--red);">straight to our subscribers' inboxes</strong>.</span></li>
+        <li><span>Designed to <strong>build local awareness</strong> and keep your business top of mind in your community.</span></li>
       </ul>
       <div class="prod-specs">
         <div class="prod-spec-row"><span class="prod-spec-label">Geo-Targeting</span><span class="prod-spec-val">Town / county / state</span></div>
@@ -442,7 +446,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
     <span class="section-kicker">Side by Side</span>
     <h2 style="font-size: clamp(24px, 3vw, 36px); font-weight: 900; color: var(--charcoal); margin-bottom: 8px;">Which Option is Right for You?</h2>
     <p style="font-size: 15px; color: #444444; margin-bottom: 0; max-width: 820px; line-height: 1.7;">Every goal is different. Use this table to see which product or combination works best for what you're trying to accomplish.</p>
-    <p style="font-size: 15px; color: #444444; margin-bottom: 40px; max-width: 720px; line-height: 1.7;">Not sure which to choose? Just reach out and we'll figure it out together.</p>
+    <p style="font-size: 15px; color: #444444; margin-bottom: 40px; max-width: 720px; line-height: 1.7;">Not sure which to choose? <a href="advertise.html#contact-form" style="color: inherit; text-decoration: underline;">Just reach out</a> and we'll figure it out together.</p>
 
     <div style="overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; border: 1px solid var(--border); border-radius: 4px; margin-top: 8px;">
       <table style="width: 100%; border-collapse: collapse; min-width: 640px;">
@@ -644,14 +648,19 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
   var item = q.closest('.faq-item');
   var answer = item.querySelector('.faq-a');
   var icon = q.querySelector('.faq-icon');
+  var isMobileFaq = window.matchMedia('(max-width: 640px)').matches;
 
   answer.style.display = 'block';
   answer.style.maxHeight = '0px';
   answer.style.opacity = '0';
   answer.style.overflow = 'hidden';
   answer.style.paddingTop = '0px';
-  answer.style.transition = 'max-height .42s ease, opacity .3s ease, padding-top .42s ease';
-  icon.style.transition = 'transform .3s ease';
+  answer.style.willChange = 'max-height, opacity, padding-top';
+  answer.style.transform = 'translateZ(0)';
+  answer.style.transition = isMobileFaq
+    ? 'max-height .3s cubic-bezier(.22,1,.36,1), opacity .2s ease, padding-top .3s cubic-bezier(.22,1,.36,1)'
+    : 'max-height .42s ease, opacity .3s ease, padding-top .42s ease';
+  icon.style.transition = isMobileFaq ? 'transform .22s ease' : 'transform .3s ease';
   icon.style.transform = 'rotate(0deg)';
 
   q.addEventListener('click', function() {
