@@ -726,6 +726,8 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
 var _lastScroll = 0;
 var _navEl = document.querySelector('nav');
 var _spacerEl = document.getElementById('nav-spacer');
+var _navLastShownAt = 0;
+var _navLastHiddenAt = 0;
 document.querySelectorAll('.js-current-year').forEach(function(el) {
   el.textContent = new Date().getFullYear();
 });
@@ -736,11 +738,29 @@ window.addEventListener('scroll', function () {
   var cur = window.pageYOffset;
   var isMobile = window.matchMedia('(max-width: 960px)').matches;
   var hideThreshold = isMobile ? 120 : 120;
-  var upThreshold = isMobile ? 10 : 18;
+  var downDistance = isMobile ? 90 : 120;
+  var upDistance = isMobile ? 90 : 120;
   var topRevealThreshold = isMobile ? 90 : 120;
-  if (cur <= topRevealThreshold) { _navEl.classList.remove('nav-hidden'); }
-  else if (cur > _lastScroll && cur > hideThreshold) { _navEl.classList.add('nav-hidden'); }
-  else if (_lastScroll - cur > upThreshold) { _navEl.classList.remove('nav-hidden'); }
+  if (cur <= topRevealThreshold) {
+    _navEl.classList.remove('nav-hidden');
+    _navLastShownAt = cur;
+  } else if (!_navEl.classList.contains('nav-hidden')) {
+    if (cur > _lastScroll) {
+      if (cur > hideThreshold && cur - _navLastShownAt > downDistance) {
+        _navEl.classList.add('nav-hidden');
+        _navLastHiddenAt = cur;
+      }
+    } else {
+      _navLastShownAt = cur;
+    }
+  } else if (cur < _lastScroll) {
+    if (_navLastHiddenAt - cur > upDistance) {
+      _navEl.classList.remove('nav-hidden');
+      _navLastShownAt = cur;
+    }
+  } else {
+    _navLastHiddenAt = cur;
+  }
   _lastScroll = cur;
 }, { passive: true });
 </script>

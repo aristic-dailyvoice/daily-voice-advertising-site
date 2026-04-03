@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Advertise With Us | Daily Voice</title>
-  <link rel="preload" href="assets/images/landing-mockup.svg" as="image" type="image/svg+xml" />
+  <link rel="preload" href="assets/images/landing-mockup.png" as="image" type="image/png" />
   <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -67,7 +67,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 .hero-response-note { font-size: 13px; color: var(--gray); margin-top: 12px; }
 .attention-proof { background: white; border: 1px solid var(--border); border-top: 4px solid var(--red); padding: 28px 26px; box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
 .attention-proof--mockup { background: transparent; border: none; padding: 0; box-shadow: none; margin-bottom: -61px; position: relative; z-index: 3; align-self: end; min-height: 420px; display: flex; align-items: flex-end; }
-.attention-proof--mockup img { width: 156%; max-width: none; height: auto; display: block; transform: translateX(-136px); flex-shrink: 0; }
+.attention-proof--mockup img { --mockup-x: -116px; width: 150%; max-width: none; height: auto; display: block; transform: translateX(var(--mockup-x)); flex-shrink: 0; }
 .ap-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); padding-bottom: 14px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
 .ap-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 14px; padding-bottom: 14px; }
 .ap-stat { display: flex; flex-direction: column; gap: 3px; }
@@ -158,7 +158,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 .form-submit:hover { background: var(--red-dark); }
 .form-guarantee { text-align: center; font-size: 12px; color: var(--gray); margin-top: 10px; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeUpMockup { from { opacity: 0; transform: translate(-136px, 14px); } to { opacity: 1; transform: translate(-136px, 0); } }
+@keyframes fadeUpMockup { from { opacity: 0; transform: translate(var(--mockup-x), 14px); } to { opacity: 1; transform: translate(var(--mockup-x), 0); } }
 .attention-copy h1  { animation: fadeUp .45s ease both; }
 .attention-lead     { animation: fadeUp .45s ease .07s both; }
 .attention-actions  { animation: fadeUp .45s ease .13s both; }
@@ -244,7 +244,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
       <p class="hero-response-note">We typically reply within 1 business day</p>
     </div>
     <div class="attention-proof attention-proof--mockup">
-      <img src="assets/images/landing-mockup.svg" alt="Landing page mockup shown on desktop and mobile devices" width="1242" height="998" fetchpriority="high" />
+      <img src="assets/images/landing-mockup.png" alt="Landing page mockup shown on desktop and mobile devices" width="1242" height="998" fetchpriority="high" />
     </div>
   </div>
 </section>
@@ -415,6 +415,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
             <label>Monthly Budget</label>
             <select required id="monthly-budget-select">
               <option value="" disabled selected></option>
+              <option>Not sure yet</option>
               <option>Under $500</option>
               <option>$500 – $2,000</option>
               <option>$2,000 – $5,000</option>
@@ -466,6 +467,8 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 var _lastScroll = 0;
 var _navEl = document.querySelector('nav');
 var _spacerEl = document.getElementById('nav-spacer');
+var _navLastShownAt = 0;
+var _navLastHiddenAt = 0;
 document.querySelectorAll('.js-current-year').forEach(function(el) {
   el.textContent = new Date().getFullYear();
 });
@@ -526,11 +529,29 @@ window.addEventListener('scroll', function () {
   var cur = window.pageYOffset;
   var isMobile = window.matchMedia('(max-width: 960px)').matches;
   var hideThreshold = isMobile ? 120 : 120;
-  var upThreshold = isMobile ? 10 : 18;
+  var downDistance = isMobile ? 90 : 120;
+  var upDistance = isMobile ? 90 : 120;
   var topRevealThreshold = isMobile ? 90 : 120;
-  if (cur <= topRevealThreshold) { _navEl.classList.remove('nav-hidden'); }
-  else if (cur > _lastScroll && cur > hideThreshold) { _navEl.classList.add('nav-hidden'); }
-  else if (_lastScroll - cur > upThreshold) { _navEl.classList.remove('nav-hidden'); }
+  if (cur <= topRevealThreshold) {
+    _navEl.classList.remove('nav-hidden');
+    _navLastShownAt = cur;
+  } else if (!_navEl.classList.contains('nav-hidden')) {
+    if (cur > _lastScroll) {
+      if (cur > hideThreshold && cur - _navLastShownAt > downDistance) {
+        _navEl.classList.add('nav-hidden');
+        _navLastHiddenAt = cur;
+      }
+    } else {
+      _navLastShownAt = cur;
+    }
+  } else if (cur < _lastScroll) {
+    if (_navLastHiddenAt - cur > upDistance) {
+      _navEl.classList.remove('nav-hidden');
+      _navLastShownAt = cur;
+    }
+  } else {
+    _navLastHiddenAt = cur;
+  }
   _lastScroll = cur;
 }, { passive: true });
 function handleSubmit(e) {
