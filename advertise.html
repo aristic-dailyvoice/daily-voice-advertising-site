@@ -580,22 +580,6 @@ function handleSubmit(e) {
     window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
   });
 }
-function _softScrollToContactOnMobile() {
-  if (window.location.hash !== '#contact-form') return;
-  if (!window.matchMedia('(max-width: 960px)').matches) return;
-  var target = document.getElementById('contact-form');
-  if (!target) return;
-  var nav = document.querySelector('nav');
-  var navOffset = nav ? nav.offsetHeight : 0;
-  requestAnimationFrame(function() {
-    requestAnimationFrame(function() {
-      var top = target.getBoundingClientRect().top + window.pageYOffset - navOffset - 8;
-      window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
-    });
-  });
-}
-window.addEventListener('load', _softScrollToContactOnMobile);
-window.addEventListener('pageshow', _softScrollToContactOnMobile);
 </script>
 </body>
 </html>
