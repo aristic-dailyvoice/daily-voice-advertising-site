@@ -59,13 +59,13 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 
 /* PRODUCT SUMMARY BAR */
 .prod-summary { margin-top: 0; }
-.prod-summary-inner { display: grid; grid-template-columns: repeat(4, 1fr); background: white; border: 1px solid var(--border); box-shadow: 0 14px 36px rgba(0,0,0,0.05); }
-.prod-summary-item { padding: 28px 32px; border-right: 1px solid var(--border); text-decoration: none; display: block; transition: background .2s ease, color .2s ease; }
+.prod-summary-inner { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--charcoal); border: 1px solid #333; box-shadow: 0 14px 36px rgba(0,0,0,0.08); }
+.prod-summary-item { padding: 28px 32px; border-right: 1px solid #333; text-decoration: none; display: block; transition: background .2s ease, color .2s ease; }
 .prod-summary-item:last-child { border-right: none; }
-.prod-summary-item:hover { background: var(--lighter); }
-.prod-summary-num { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #b9b4ae; margin-bottom: 0; }
-.prod-summary-name { font-size: 18px; font-weight: 700; color: var(--charcoal); margin-bottom: 4px; }
-.prod-summary-desc { font-size: 14px; color: var(--gray); line-height: 1.5; }
+.prod-summary-item:hover { background: #262626; }
+.prod-summary-num { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(237,33,42,0.9); margin-bottom: 0; }
+.prod-summary-name { font-size: 18px; font-weight: 700; color: #f6f4f1; margin-bottom: 4px; }
+.prod-summary-desc { font-size: 14px; color: rgba(255,255,255,0.74); line-height: 1.5; }
 
 /* PRODUCT SECTIONS */
 .prod-section { padding: 72px 5%; border-bottom: 1px solid var(--border); }
@@ -203,7 +203,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
   .prod-cta,
   footer { overflow-x: clip; }
   .prod-summary-inner { grid-template-columns: 1fr; }
-  .prod-summary-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .prod-summary-item { border-right: none; border-bottom: 1px solid #333; }
   .prod-section-inner { grid-template-columns: 1fr; gap: 40px; }
   .prod-section-inner.flip { direction: ltr; }
   .prod-visual--screenshot { padding-top: 0; overflow: hidden; }
