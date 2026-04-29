@@ -11,6 +11,7 @@
   --red: #ED212A; --red-dark: #c41820;
   --charcoal: #1f1f1f; --body: #444; --gray: #777;
   --light: #f7f6f4; --lighter: #faf9f8; --border: #e2e0dc; --white: #fff;
+  --charcoal-text: #f6f4f1; --charcoal-muted: rgba(255,255,255,0.68); --charcoal-divider: #333; --charcoal-hover: #262626;
 }
 html { scroll-behavior: smooth; }
 body { font-family: Helvetica, Arial, sans-serif; color: var(--body); background: #FAF9F8; font-size: 15px; line-height: 1.6; overflow-x: hidden; }
@@ -33,18 +34,18 @@ nav.nav-hidden { transform: translateY(calc(-100% - 36px)); }
 .nav-cta { background: var(--red); color: white !important; font-size: 13px; font-weight: 700; padding: 13px 27px; text-decoration: none; transition: background .2s; white-space: nowrap; margin-left: 8px; display: inline-flex; align-items: center; justify-content: center; line-height: 1; }
 .nav-cta:hover { background: var(--red-dark) !important; }
 .nav-cta-top { display: none; }
-footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
+footer { background: var(--charcoal); color: var(--charcoal-muted); padding: 32px 5%; }
 .footer-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
-.footer-brand { font-size: 12px; line-height: 1.8; }
+.footer-brand { font-size: 12px; line-height: 1.8; color: rgba(255,255,255,0.42); }
 .footer-brand img { width: 56px; height: 56px; display: block; }
 .footer-brand p { margin-top: 8px; max-width: 260px; }
 .footer-links { display: flex; gap: 40px; flex-wrap: wrap; }
-.footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #aaa; margin-bottom: 12px; }
-.footer-col a { display: block; font-size: 13px; color: #888; text-decoration: none; margin-bottom: 8px; }
-.footer-col a:hover { color: var(--red); }
-.footer-bottom { max-width: 1160px; margin: 28px auto 0; padding-top: 20px; border-top: 1px solid #333; font-size: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-.footer-bottom a { color: #666; text-decoration: none; }
-.footer-bottom a:hover { color: var(--red); }
+.footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.56); margin-bottom: 12px; }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.42); text-decoration: none; margin-bottom: 8px; }
+.footer-col a:hover { text-decoration: underline; }
+.footer-bottom { max-width: 1160px; margin: 28px auto 0; padding-top: 20px; border-top: 1px solid var(--charcoal-divider); font-size: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; color: rgba(255,255,255,0.42); }
+.footer-bottom a { color: rgba(255,255,255,0.42); text-decoration: none; }
+.footer-bottom a:hover { text-decoration: underline; }
 .section-inner { max-width: 1160px; margin: 0 auto; }
 .section-kicker { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 8px; display: block; }
 .btn-primary { background: var(--red); color: white; font-size: 15px; font-weight: 700; padding: 14px 28px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; transition: background .2s; line-height: 1; }
@@ -53,19 +54,19 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 /* HERO */
 .prod-hero { background: #faf9f8; border-bottom: 1px solid var(--border); padding: 64px 5% 60px; }
 .prod-hero-inner { max-width: 1160px; margin: 0 auto; }
-.prod-hero h1 { font-size: clamp(32px, 4.5vw, 52px); font-weight: 900; color: var(--charcoal); line-height: 1.05; margin-bottom: 16px; max-width: 860px; }
+.prod-hero h1 { font-size: clamp(32px, 4.5vw, 52px); font-weight: 900; color: var(--charcoal); line-height: 1.1; margin-bottom: 16px; max-width: 860px; }
 .prod-hero h1 em { color: var(--red); font-style: normal; }
 .prod-hero-sub { font-size: 17px; color: var(--body); max-width: 560px; line-height: 1.7; margin-bottom: 32px; }
 
 /* PRODUCT SUMMARY BAR */
 .prod-summary { margin-top: 0; }
-.prod-summary-inner { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--charcoal); border: 1px solid #333; box-shadow: 0 14px 36px rgba(0,0,0,0.08); }
-.prod-summary-item { padding: 28px 32px; border-right: 1px solid #333; text-decoration: none; display: block; transition: background .2s ease, color .2s ease; }
+.prod-summary-inner { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--charcoal); border: 1px solid var(--charcoal-divider); box-shadow: 0 14px 36px rgba(0,0,0,0.08); }
+.prod-summary-item { padding: 28px 32px; border-right: 1px solid var(--charcoal-divider); text-decoration: none; display: block; transition: background .2s ease, color .2s ease; }
 .prod-summary-item:last-child { border-right: none; }
-.prod-summary-item:hover { background: #262626; }
+.prod-summary-item:hover { background: var(--charcoal-hover); }
 .prod-summary-num { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(237,33,42,0.9); margin-bottom: 0; }
-.prod-summary-name { font-size: 18px; font-weight: 700; color: #f6f4f1; margin-bottom: 4px; }
-.prod-summary-desc { font-size: 14px; color: rgba(255,255,255,0.74); line-height: 1.5; }
+.prod-summary-name { font-size: 18px; font-weight: 700; color: var(--charcoal-text); margin-bottom: 4px; }
+.prod-summary-desc { font-size: 14px; color: var(--charcoal-muted); line-height: 1.5; }
 
 /* PRODUCT SECTIONS */
 .prod-section { padding: 72px 5%; border-bottom: 1px solid var(--border); }
@@ -87,7 +88,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 /* BEST FOR TAG */
 .prod-best-for { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
 .prod-best-for-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); }
-.prod-best-for-tag { font-size: 13px; font-weight: 600; color: white; background: var(--charcoal); border: 1px solid var(--charcoal); padding: 6px 14px; }
+.prod-best-for-tag { font-size: 13px; font-weight: 600; color: #f6f4f1; background: var(--charcoal); border: 1px solid var(--charcoal); padding: 6px 14px; }
 
 /* SPECS */
 .prod-specs { border-top: 1px solid var(--border); margin-top: 28px; padding-top: 20px; display: flex; flex-direction: column; gap: 8px; }
@@ -98,8 +99,8 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 /* NOT SURE SECTION */
 .prod-notsure { background: var(--charcoal); padding: 56px 5%; }
 .prod-notsure-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
-.prod-notsure h3 { font-size: clamp(20px, 2.5vw, 28px); font-weight: 900; color: white; margin-bottom: 8px; }
-.prod-notsure p { font-size: 15px; color: #aaa; max-width: 480px; line-height: 1.7; }
+.prod-notsure h3 { font-size: clamp(20px, 2.5vw, 28px); font-weight: 900; color: var(--charcoal-text); margin-bottom: 8px; }
+.prod-notsure p { font-size: 15px; color: var(--charcoal-muted); max-width: 480px; line-height: 1.7; }
 .prod-visual { background: var(--charcoal); overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: stretch; }
 .prod-visual--screenshot { background: transparent; overflow: visible; aspect-ratio: auto; align-items: flex-end; justify-content: flex-end; position: relative; padding-top: 0; }
 .prod-visual--mockup { background: transparent; overflow: visible; aspect-ratio: auto; align-items: center; justify-content: center; }
@@ -193,7 +194,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
     margin-bottom: 12px;
   }
   .prod-hero h1 { font-size: 32px; }
-  .prod-hero h1 { line-height: 1.08; margin-bottom: 20px; }
+  .prod-hero h1 { line-height: 1.15; margin-bottom: 20px; }
   .prod-hero-sub { max-width: 520px; line-height: 1.85; margin-bottom: 32px; }
   .do-bottom-copy strong { font-size: 18px; }
   .do-bottom-copy span { font-size: 14px; }
@@ -203,7 +204,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
   .prod-cta,
   footer { overflow-x: clip; }
   .prod-summary-inner { grid-template-columns: 1fr; }
-  .prod-summary-item { border-right: none; border-bottom: 1px solid #333; }
+  .prod-summary-item { border-right: none; border-bottom: 1px solid var(--charcoal-divider); }
   .prod-section-inner { grid-template-columns: 1fr; gap: 40px; }
   .prod-section-inner.flip { direction: ltr; }
   .prod-visual--screenshot { padding-top: 0; overflow: hidden; }
@@ -587,7 +588,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
             <span class="faq-icon" style="color: var(--red); flex-shrink: 0; line-height: 1; display: inline-flex; width: 26px; height: 26px; align-items: center; justify-content: center; transition: transform .2s ease; transform: rotate(180deg);"><img src="assets/images/down-arrow.svg" alt="" aria-hidden="true" style="width: 22px; height: 22px; display: block;" /></span>
           </div>
           <div class="faq-a" style="display: none; font-size: 15px; color: var(--body); line-height: 1.7;">
-            We work with businesses of all sizes. Just reach out and tell us a bit about what you're trying to accomplish and we'll put together a recommendation that fits your goals and your budget, with no pressure and no commitment.
+            We work with businesses of all sizes. <a href="advertise.html#contact-form" style="color: inherit; text-decoration: underline;">Just reach out</a> and tell us a bit about what you're trying to accomplish and we'll put together a recommendation that fits your goals and your budget.
           </div>
         </div>
         <div class="faq-item" style="border-bottom: 1px solid var(--border); padding: 20px 0;">
@@ -608,7 +609,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
             <span class="faq-icon" style="color: var(--red); flex-shrink: 0; line-height: 1; display: inline-flex; width: 26px; height: 26px; align-items: center; justify-content: center; transition: transform .2s ease; transform: rotate(180deg);"><img src="assets/images/down-arrow.svg" alt="" aria-hidden="true" style="width: 22px; height: 22px; display: block;" /></span>
           </div>
           <div class="faq-a" style="display: none; font-size: 15px; color: var(--body); line-height: 1.7;">
-            Yes. We offer a range of packages tailored to different goals and budgets. Whether you're looking to build awareness, drive traffic, or promote a specific offer, there's likely a package that fits. Reach out and we'll walk you through the options.
+            Yes. We offer a range of packages tailored to different goals and budgets. Whether you're looking to build awareness, drive traffic, or promote a specific offer, there's likely a package that fits. <a href="advertise.html#contact-form" style="color: inherit; text-decoration: underline;">Reach out</a> and we'll walk you through the options.
           </div>
         </div>
         <div class="faq-item" style="border-bottom: 1px solid var(--border); padding: 20px 0;">
@@ -617,7 +618,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
             <span class="faq-icon" style="color: var(--red); flex-shrink: 0; line-height: 1; display: inline-flex; width: 26px; height: 26px; align-items: center; justify-content: center; transition: transform .2s ease; transform: rotate(180deg);"><img src="assets/images/down-arrow.svg" alt="" aria-hidden="true" style="width: 22px; height: 22px; display: block;" /></span>
           </div>
           <div class="faq-a" style="display: none; font-size: 15px; color: var(--body); line-height: 1.7;">
-            Yes. All of our products can be targeted by town, county, or state. You choose exactly which Daily Voice markets you want to reach, so you're never paying to advertise outside your service area.
+            Yes. All of our products can be targeted by town, county, or state. You choose exactly which <a href="audience.html#coverage-glide" style="color: inherit; text-decoration: underline;">Daily Voice geo's</a> you want to reach, so you're never paying to advertise outside your service area.
           </div>
         </div>
         <div class="faq-item" style="border-bottom: 1px solid var(--border); padding: 20px 0;">
@@ -626,7 +627,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
             <span class="faq-icon" style="color: var(--red); flex-shrink: 0; line-height: 1; display: inline-flex; width: 26px; height: 26px; align-items: center; justify-content: center; transition: transform .2s ease; transform: rotate(180deg);"><img src="assets/images/down-arrow.svg" alt="" aria-hidden="true" style="width: 22px; height: 22px; display: block;" /></span>
           </div>
           <div class="faq-a" style="display: none; font-size: 15px; color: var(--body); line-height: 1.7;">
-            Absolutely. You can target multiple towns, a full county, or an entire state. Daily Voice reaches communities across a wide network, so if your business serves a broader area we can make sure your campaign covers it.
+            Absolutely. You can target multiple towns, a full county, or an entire state. Daily Voice reaches communities <a href="audience.html#coverage-glide" style="color: inherit; text-decoration: underline;">across a wide network</a>, so if your business serves a broader area we can make sure your campaign covers it.
           </div>
         </div>
         <div class="faq-item" style="border-bottom: 1px solid var(--border); padding: 20px 0;">

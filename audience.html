@@ -14,6 +14,7 @@
   --red: #ED212A; --red-dark: #c41820;
   --charcoal: #1f1f1f; --body: #444; --gray: #777;
   --light: #f7f6f4; --lighter: #faf9f8; --border: #e2e0dc; --white: #fff;
+  --charcoal-text: #f6f4f1; --charcoal-muted: rgba(255,255,255,0.68); --charcoal-divider: #333; --charcoal-hover: #262626;
 }
 body { font-family: Helvetica, Arial, sans-serif; color: var(--body); background: #FAF9F8; font-size: 15px; line-height: 1.6; }
 a { color: inherit; }
@@ -35,18 +36,18 @@ nav.nav-hidden { transform: translateY(calc(-100% - 36px)); }
 .nav-cta { background: var(--red); color: white !important; font-size: 13px; font-weight: 700; padding: 13px 27px; text-decoration: none; transition: background .2s; white-space: nowrap; margin-left: 8px; display: inline-flex; align-items: center; justify-content: center; line-height: 1; }
 .nav-cta:hover { background: var(--red-dark) !important; }
 .nav-cta-top { display: none; }
-footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
+footer { background: var(--charcoal); color: var(--charcoal-muted); padding: 32px 5%; }
 .footer-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
-.footer-brand { font-size: 12px; line-height: 1.8; }
+.footer-brand { font-size: 12px; line-height: 1.8; color: rgba(255,255,255,0.42); }
 .footer-brand img { width: 56px; height: 56px; display: block; }
 .footer-brand p { margin-top: 8px; max-width: 260px; }
 .footer-links { display: flex; gap: 40px; flex-wrap: wrap; }
-.footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #aaa; margin-bottom: 12px; }
-.footer-col a { display: block; font-size: 13px; color: #888; text-decoration: none; margin-bottom: 8px; }
-.footer-col a:hover { color: var(--red); }
-.footer-bottom { max-width: 1160px; margin: 28px auto 0; padding-top: 20px; border-top: 1px solid #333; font-size: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-.footer-bottom a { color: #666; text-decoration: none; }
-.footer-bottom a:hover { color: var(--red); }
+.footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.56); margin-bottom: 12px; }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.42); text-decoration: none; margin-bottom: 8px; }
+.footer-col a:hover { text-decoration: underline; }
+.footer-bottom { max-width: 1160px; margin: 28px auto 0; padding-top: 20px; border-top: 1px solid var(--charcoal-divider); font-size: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; color: rgba(255,255,255,0.42); }
+.footer-bottom a { color: rgba(255,255,255,0.42); text-decoration: none; }
+.footer-bottom a:hover { text-decoration: underline; }
 .section-inner { max-width: 1160px; margin: 0 auto; }
 .section-kicker { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 8px; display: block; }
 .section-h { font-size: clamp(22px, 3vw, 33px); font-weight: 900; color: var(--charcoal); line-height: 1.2; margin-bottom: 12px; }
@@ -59,12 +60,12 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 .aud-hero h1 { font-size: clamp(30px, 4vw, 52px); font-weight: 900; color: var(--charcoal); line-height: 1.1; margin-bottom: 12px; }
 .aud-hero h1 em { color: var(--red); font-style: normal; }
 .aud-hero-sub { font-size: 17px; color: var(--body); max-width: 580px; line-height: 1.7; margin-bottom: 48px; }
-.aud-hero-stats { display: flex; gap: 0; flex-wrap: wrap; border: 1px solid #333; background: #1f1f1f; }
-.aud-hero-stat { flex: 1; min-width: 160px; padding: 28px 32px; border-right: 1px solid #333; }
+.aud-hero-stats { display: flex; gap: 0; flex-wrap: wrap; border: 1px solid var(--charcoal-divider); background: var(--charcoal); }
+.aud-hero-stat { flex: 1; min-width: 160px; padding: 28px 32px; border-right: 1px solid var(--charcoal-divider); }
 .aud-hero-stat:last-child { border-right: none; }
 .aud-hero-stat-n { font-size: clamp(28px, 3vw, 38px); font-weight: 900; color: #9A9A9A; line-height: 1; display: block; }
 .aud-hero-stat-n.highlight { color: var(--red); }
-.aud-hero-stat-l { font-size: 15px; color: #aaa; margin-top: 4px; display: block; }
+.aud-hero-stat-l { font-size: 15px; color: var(--charcoal-muted); margin-top: 4px; display: block; }
 
 /* RED RULE */
 .red-rule { height: 4px; background: var(--red); }
@@ -99,7 +100,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 .int-fill { height: 5px; background: var(--red); position: absolute; top: 0; left: 50%; z-index: 1; }
 .int-baseline { position: absolute; top: 50%; transform: translateY(-50%); left: 50%; width: 1px; height: 14px; background: #1f1f1f; z-index: 2; }
 .int-baseline-label { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: 400; color: #1f1f1f; white-space: nowrap; letter-spacing: 0.5px; }
-.source-note { font-size: 15px; color: #aaa; margin-top: 24px; }
+.source-note { font-size: 15px; color: var(--charcoal-muted); margin-top: 24px; }
 
 /* CTA */
 .do-bottom { background: var(--red); padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
@@ -121,21 +122,21 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
 .geo-section { background: var(--charcoal); padding: 72px 5%; }
 .geo-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .geo-kicker { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; display: block; }
-.geo-h { font-size: clamp(24px, 3vw, 38px); font-weight: 900; color: white; line-height: 1.15; margin-bottom: 16px; }
-.geo-sub { font-size: 15px; color: #aaa; line-height: 1.8; margin-bottom: 40px; }
+.geo-h { font-size: clamp(24px, 3vw, 38px); font-weight: 900; color: var(--charcoal-text); line-height: 1.15; margin-bottom: 16px; }
+.geo-sub { font-size: 15px; color: var(--charcoal-muted); line-height: 1.8; margin-bottom: 40px; }
 .geo-stats { display: flex; gap: 32px; margin-bottom: 40px; }
 .geo-stat-n { display: block; font-size: 36px; font-weight: 900; color: var(--red); line-height: 1; }
-.geo-stat-l { display: block; font-size: 13px; color: #888; margin-top: 4px; }
+.geo-stat-l { display: block; font-size: 13px; color: var(--charcoal-muted); margin-top: 4px; }
 .geo-states { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 12px; }
 .geo-dot { color: #fff; font-size: 18px; line-height: 1; }
-.geo-state-name { font-size: 17px; font-weight: 600; color: white; white-space: nowrap; }
+.geo-state-name { font-size: 17px; font-weight: 600; color: var(--charcoal-text); white-space: nowrap; }
 .geo-map-wrap { position: relative; }
 .geo-map-wrap img { width: 100%; display: block; opacity: 0.9; }
 
 .geo-stats-row { display: flex; align-items: center; gap: 0; margin-bottom: 48px; flex-wrap: wrap; }
 .geo-stat { display: flex; flex-direction: column; padding: 0 40px 0 0; }
 .geo-stat:first-child { padding-left: 0; }
-.geo-stat-div { width: 1px; height: 48px; background: #333; margin-right: 40px; }
+.geo-stat-div { width: 1px; height: 48px; background: var(--charcoal-divider); margin-right: 40px; }
 
 @media (max-width: 960px) {
   nav.nav-hidden { transform: translateY(calc(-100% - 12px)); }
@@ -171,7 +172,7 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
   .ah-copy h1,
   .ah-h { font-size: 32px !important; }
   .ah-copy h1,
-  .ah-h { line-height: 1.08 !important; margin-bottom: 20px !important; }
+  .ah-h { line-height: 1.15 !important; margin-bottom: 20px !important; }
   .do-bottom-copy strong { font-size: 18px; }
   .do-bottom-copy span { font-size: 14px; }
   .demo-split { grid-template-columns: 1fr; gap: 48px; }
@@ -338,23 +339,23 @@ footer { background: var(--charcoal); color: #888; padding: 32px 5%; }
   <div class="demo-split">
     <div>
       <span class="demo-col-kicker" style="color: var(--red);">AUDIENCE INTERESTS</span>
-      <h2 class="demo-col-h" style="color: white;">An Audience Invested in Their Community.</h2>
-      <p class="demo-intro" style="color: #aaa;">Index = audience composition vs. internet average. 100 is average. Our readers dramatically over-index on News, Business, and local lifestyle categories.</p>
-      <div class="int-list" style="--int-border: rgba(255,255,255,0.12); --int-track-bg: linear-gradient(to right, #444 50%, #333 50%); --int-baseline-bg: rgba(255,255,255,0.5); --int-baseline-label-color: rgba(255,255,255,0.5);">
-        <div class="int-row" style="padding-top:20px; border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color:#ccc;">News</span><span class="int-val" style="color:white;">195</span></div><div class="int-track" style="background: linear-gradient(to right, #444 50%, #333 50%);"><div class="int-baseline" style="background: white;"><span class="int-baseline-label" style="color: white;">Index 100 (average)</span></div><div class="int-fill" style="width:47.5%"></div></div></div>
-        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color:#ccc;">Business</span><span class="int-val" style="color:white;">190</span></div><div class="int-track" style="background: linear-gradient(to right, #444 50%, #333 50%);"><div class="int-baseline" style="background: white;"><span class="int-baseline-label desktop-only" style="color: white;">Index 100 (average)</span></div><div class="int-fill" style="width:45.0%"></div></div></div>
-        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color:#ccc;">Relationships</span><span class="int-val" style="color:white;">181</span></div><div class="int-track" style="background: linear-gradient(to right, #444 50%, #333 50%);"><div class="int-baseline" style="background: white;"></div><div class="int-fill" style="width:40.5%"></div></div></div>
-        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color:#ccc;">Food &amp; Drink</span><span class="int-val" style="color:white;">153</span></div><div class="int-track" style="background: linear-gradient(to right, #444 50%, #333 50%);"><div class="int-baseline" style="background: white;"></div><div class="int-fill" style="width:26.5%"></div></div></div>
-        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color:#ccc;">Education</span><span class="int-val" style="color:white;">150</span></div><div class="int-track" style="background: linear-gradient(to right, #444 50%, #333 50%);"><div class="int-baseline" style="background: white;"></div><div class="int-fill" style="width:25.0%"></div></div></div>
-        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color:#ccc;">Arts &amp; Entertainment</span><span class="int-val" style="color:white;">147</span></div><div class="int-track" style="background: linear-gradient(to right, #444 50%, #333 50%);"><div class="int-baseline" style="background: white;"></div><div class="int-fill" style="width:23.5%"></div></div></div>
-        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color:#ccc;">Health &amp; Fitness</span><span class="int-val" style="color:white;">145</span></div><div class="int-track" style="background: linear-gradient(to right, #444 50%, #333 50%);"><div class="int-baseline" style="background: white;"></div><div class="int-fill" style="width:22.5%"></div></div></div>
-        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color:#ccc;">Personal Finance</span><span class="int-val" style="color:white;">144</span></div><div class="int-track" style="background: linear-gradient(to right, #444 50%, #333 50%);"><div class="int-baseline" style="background: white;"></div><div class="int-fill" style="width:22.0%"></div></div></div>
-        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color:#ccc;">Travel</span><span class="int-val" style="color:white;">138</span></div><div class="int-track" style="background: linear-gradient(to right, #444 50%, #333 50%);"><div class="int-baseline" style="background: white;"></div><div class="int-fill" style="width:19.0%"></div></div></div>
-        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color:#ccc;">Sports</span><span class="int-val" style="color:white;">137</span></div><div class="int-track" style="background: linear-gradient(to right, #444 50%, #333 50%);"><div class="int-baseline" style="background: white;"></div><div class="int-fill" style="width:18.5%"></div></div></div>
-        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color:#ccc;">Family &amp; Parenting</span><span class="int-val" style="color:white;">125</span></div><div class="int-track" style="background: linear-gradient(to right, #444 50%, #333 50%);"><div class="int-baseline" style="background: white;"></div><div class="int-fill" style="width:12.5%"></div></div></div>
-        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color:#ccc;">Style &amp; Fashion</span><span class="int-val" style="color:white;">124</span></div><div class="int-track" style="background: linear-gradient(to right, #444 50%, #333 50%);"><div class="int-baseline" style="background: white;"></div><div class="int-fill" style="width:12.0%"></div></div></div>
-        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color:#ccc;">Real Estate</span><span class="int-val" style="color:white;">121</span></div><div class="int-track" style="background: linear-gradient(to right, #444 50%, #333 50%);"><div class="int-baseline" style="background: white;"></div><div class="int-fill" style="width:10.5%"></div></div></div>
-        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color:#ccc;">Society</span><span class="int-val" style="color:white;">118</span></div><div class="int-track" style="background: linear-gradient(to right, #444 50%, #333 50%);"><div class="int-baseline" style="background: white;"></div><div class="int-fill" style="width:9.0%"></div></div></div>
+      <h2 class="demo-col-h" style="color: var(--charcoal-text);">An Audience Invested in Their Community.</h2>
+      <p class="demo-intro" style="color: var(--charcoal-muted);">Index = audience composition vs. internet average. 100 is average. Our readers dramatically over-index on News, Business, and local lifestyle categories.</p>
+      <div class="int-list" style="--int-border: rgba(255,255,255,0.12); --int-track-bg: linear-gradient(to right, #444 50%, var(--charcoal-divider) 50%); --int-baseline-bg: #fff; --int-baseline-label-color: #fff;">
+        <div class="int-row" style="padding-top:20px; border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color: var(--charcoal-muted);">News</span><span class="int-val" style="color: var(--charcoal-text);">195</span></div><div class="int-track" style="background: var(--int-track-bg);"><div class="int-baseline" style="background: var(--int-baseline-bg);"><span class="int-baseline-label" style="color: var(--int-baseline-label-color);">Index 100 (average)</span></div><div class="int-fill" style="width:47.5%"></div></div></div>
+        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color: var(--charcoal-muted);">Business</span><span class="int-val" style="color: var(--charcoal-text);">190</span></div><div class="int-track" style="background: var(--int-track-bg);"><div class="int-baseline" style="background: var(--int-baseline-bg);"><span class="int-baseline-label desktop-only" style="color: var(--int-baseline-label-color);">Index 100 (average)</span></div><div class="int-fill" style="width:45.0%"></div></div></div>
+        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color: var(--charcoal-muted);">Relationships</span><span class="int-val" style="color: var(--charcoal-text);">181</span></div><div class="int-track" style="background: var(--int-track-bg);"><div class="int-baseline" style="background: var(--int-baseline-bg);"></div><div class="int-fill" style="width:40.5%"></div></div></div>
+        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color: var(--charcoal-muted);">Food &amp; Drink</span><span class="int-val" style="color: var(--charcoal-text);">153</span></div><div class="int-track" style="background: var(--int-track-bg);"><div class="int-baseline" style="background: var(--int-baseline-bg);"></div><div class="int-fill" style="width:26.5%"></div></div></div>
+        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color: var(--charcoal-muted);">Education</span><span class="int-val" style="color: var(--charcoal-text);">150</span></div><div class="int-track" style="background: var(--int-track-bg);"><div class="int-baseline" style="background: var(--int-baseline-bg);"></div><div class="int-fill" style="width:25.0%"></div></div></div>
+        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color: var(--charcoal-muted);">Arts &amp; Entertainment</span><span class="int-val" style="color: var(--charcoal-text);">147</span></div><div class="int-track" style="background: var(--int-track-bg);"><div class="int-baseline" style="background: var(--int-baseline-bg);"></div><div class="int-fill" style="width:23.5%"></div></div></div>
+        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color: var(--charcoal-muted);">Health &amp; Fitness</span><span class="int-val" style="color: var(--charcoal-text);">145</span></div><div class="int-track" style="background: var(--int-track-bg);"><div class="int-baseline" style="background: var(--int-baseline-bg);"></div><div class="int-fill" style="width:22.5%"></div></div></div>
+        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color: var(--charcoal-muted);">Personal Finance</span><span class="int-val" style="color: var(--charcoal-text);">144</span></div><div class="int-track" style="background: var(--int-track-bg);"><div class="int-baseline" style="background: var(--int-baseline-bg);"></div><div class="int-fill" style="width:22.0%"></div></div></div>
+        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color: var(--charcoal-muted);">Travel</span><span class="int-val" style="color: var(--charcoal-text);">138</span></div><div class="int-track" style="background: var(--int-track-bg);"><div class="int-baseline" style="background: var(--int-baseline-bg);"></div><div class="int-fill" style="width:19.0%"></div></div></div>
+        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color: var(--charcoal-muted);">Sports</span><span class="int-val" style="color: var(--charcoal-text);">137</span></div><div class="int-track" style="background: var(--int-track-bg);"><div class="int-baseline" style="background: var(--int-baseline-bg);"></div><div class="int-fill" style="width:18.5%"></div></div></div>
+        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color: var(--charcoal-muted);">Family &amp; Parenting</span><span class="int-val" style="color: var(--charcoal-text);">125</span></div><div class="int-track" style="background: var(--int-track-bg);"><div class="int-baseline" style="background: var(--int-baseline-bg);"></div><div class="int-fill" style="width:12.5%"></div></div></div>
+        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color: var(--charcoal-muted);">Style &amp; Fashion</span><span class="int-val" style="color: var(--charcoal-text);">124</span></div><div class="int-track" style="background: var(--int-track-bg);"><div class="int-baseline" style="background: var(--int-baseline-bg);"></div><div class="int-fill" style="width:12.0%"></div></div></div>
+        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color: var(--charcoal-muted);">Real Estate</span><span class="int-val" style="color: var(--charcoal-text);">121</span></div><div class="int-track" style="background: var(--int-track-bg);"><div class="int-baseline" style="background: var(--int-baseline-bg);"></div><div class="int-fill" style="width:10.5%"></div></div></div>
+        <div class="int-row" style="border-bottom-color: transparent;"><div class="int-top"><span class="int-label" style="color: var(--charcoal-muted);">Society</span><span class="int-val" style="color: var(--charcoal-text);">118</span></div><div class="int-track" style="background: var(--int-track-bg);"><div class="int-baseline" style="background: var(--int-baseline-bg);"></div><div class="int-fill" style="width:9.0%"></div></div></div>
       </div>
       <p class="source-note" style="color: #666;">Source: Quantcast</p>
     </div>
@@ -521,6 +522,22 @@ window.addEventListener('scroll', function () {
   }
   _lastScroll = cur;
 }, { passive: true });
+function _glideToCoverageOnLoad() {
+  if (window.location.hash !== '#coverage-glide') return;
+  var target = document.getElementById('coverage');
+  if (!target) return;
+  window.scrollTo(0, 0);
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      var nav = document.querySelector('nav');
+      var navOffset = nav ? nav.offsetHeight : 0;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - navOffset - 8;
+      window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+    });
+  });
+}
+window.addEventListener('load', _glideToCoverageOnLoad);
+window.addEventListener('pageshow', _glideToCoverageOnLoad);
 </script>
 
 </body>
